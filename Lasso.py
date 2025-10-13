@@ -8,12 +8,8 @@ import sys
 
 
 
-# Load the data (using try/except with sys.exit for robust error handling)
-try:
-    data = pd.read_csv("melb_data.csv")
-except FileNotFoundError:
-    print("Error: 'melb_data.csv' not found. Please ensure it is in the same directory as the script.")
-    sys.exit(1)
+
+data = pd.read_csv("melb_data.csv")
 
 
 
@@ -105,7 +101,7 @@ y = data['Price'].values
 print(X.shape)
 
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.3, random_state=42, shuffle=True
+    X, y, test_size=0.3, random_state=42, shuffle=False
 )
 
 y_train_flat = y_train.ravel()

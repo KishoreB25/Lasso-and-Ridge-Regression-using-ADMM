@@ -7,13 +7,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 import sys
 
 
-# Load the data
-try:
-    # Assuming 'melb_data.csv' is available
-    data = pd.read_csv("melb_data.csv")
-except FileNotFoundError:
-    print("Error: 'melb_data.csv' not found. Please ensure it is in the same directory as the script.")
-    sys.exit(1)
+
+data = pd.read_csv("melb_data.csv")
 
 
 # Column to fill: Car
@@ -102,7 +97,7 @@ y = data['Price'].values
 print(f"Total features (columns): {X.shape[1]}")
 
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.3, random_state=42, shuffle=True
+    X, y, test_size=0.3, random_state=42, shuffle=False
 )
 
 y_train_flat = y_train.ravel()
